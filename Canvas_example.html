@@ -56,11 +56,11 @@ window.addEventListener('touchmove', function (e) {
     draw()
 })
 
-window.addEventListener('orientationchange', function(e){
+window.addEventListener('orientation', function(e){
     console.log(window.innerHeight);
     console.log(window.innerWidth);
 
-    if(window.orientationchange === 90 || window.orientationchange === -90){
+    if(window.orientation === 90 || window.orientation === -90){
         canvas.width = canvas.width;
     }
 
