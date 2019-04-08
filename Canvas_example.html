@@ -15,7 +15,7 @@
         Your browser does not suppor the HTML
     </canvas>
     <br>
-    <input type="color" value="#ff0000">
+    <input type="color" value="#ff0000" id = "colorPicker" >
 
     <script>
     var canvas = document.getElementById("myCanvas");
@@ -27,7 +27,9 @@
     var heightRatio = 2;
     var cw = window.innerWidth * .8;
     var ch = window.innerHeight * .8;
+    var colorPicker = document.getElementById("colorPicker");
     window.width = window.height * heightRatio;
+
     // draw();
 
     function draw(){
@@ -35,8 +37,7 @@
         ctx.fillStyle = color;
         ctx.arc(x,y,radius,0,2*Math.PI);
         ctx.fill();
-        // ==ctx.canvas.width = window.innerWidth;
-        // ctx.canvas.height = window.innerHeight;
+
         }
 
 // for touch just take this set and change mousemove to touch something
@@ -57,17 +58,10 @@ window.addEventListener('touchmove', function (e) {
 })
 
 window.addEventListener('orientationchange', function(e){
-
-    if(e.orientationchange === 90 || e.orientationchange === -90){
-        canvas.width = canvas.width;
-        console.log(window.innerHeight);
-        console.log(window.innerWidth);
-    }
-
+        location.reload()
 })
 
-// window.addEventListener('resize',resizeCanvas, false);
-// window.addEventListener()
+
 window.addEventListener('keydown', function (e) {
     console.log(e.keyCode);
 
@@ -91,9 +85,24 @@ window.addEventListener('keydown', function (e) {
     }
     if (e.keyCode === 40){
         radius -= 1;
+
+    //  add another if statement
 }
 
 })
+
+document.querySelector("#colorPicker").addEventListener('input', function(e){
+    console.log(this);
+    console.log(this.value);
+    color = (this.value);
+
+})
+
+
+//make variable that points to your colorpicker input id
+//add a listener to that VARIABLE, not the window
+//use the value of the event.
+//don't forget console.log(e)
 
     </script>
 </body>
